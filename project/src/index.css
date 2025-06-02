@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply font-sans antialiased;
+  }
+
+  :root {
+    --primary: 229 9 20; /* Netflix Red */
+    --secondary: 0 113 235; /* Blue */
+    --accent: 255 215 0; /* Gold */
+    --success: 46 204 113; /* Green */
+    --warning: 241 196 15; /* Yellow */
+    --error: 231 76 60; /* Red */
+    
+    /* Light Theme Colors */
+    --background: 255 255 255;
+    --foreground: 15 23 42;
+    --card: 255 255 255;
+    --card-foreground: 15 23 42;
+    --muted: 241 245 249;
+    --muted-foreground: 100 116 139;
+    --border: 226 232 240;
+    
+    --ring: 229 9 20;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 15 23 42;
+    --foreground: 248 250 252;
+    --card: 30 41 59;
+    --card-foreground: 248 250 252;
+    --muted: 51 65 85;
+    --muted-foreground: 148 163 184;
+    --border: 51 65 85;
+  }
+
+  .kids {
+    --primary: 255 105 180; /* Hot Pink */
+    --secondary: 124 58 237; /* Purple */
+    --accent: 14 165 233; /* Sky Blue */
+  }
+}
+
+@layer components {
+  .movie-card {
+    @apply relative overflow-hidden rounded-md transition-all duration-300 shadow-md;
+  }
+  
+  .movie-card:hover {
+    @apply scale-105 z-10 shadow-xl;
+  }
+  
+  .section-title {
+    @apply text-xl md:text-2xl font-bold mb-4 pl-4;
+  }
+  
+  .row-container {
+    @apply pl-4 flex space-x-4 overflow-x-auto pb-6 snap-x;
+    scrollbar-width: none;
+  }
+  
+  .row-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .gradient-overlay {
+    @apply absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent;
+  }
+  
+  .netflix-button {
+    @apply px-6 py-2 bg-primary rounded font-medium hover:bg-primary/90 transition;
+  }
+  
+  .netflix-button-secondary {
+    @apply px-6 py-2 bg-white/20 rounded font-medium hover:bg-white/30 transition backdrop-blur-sm;
+  }
+
+  .profile-avatar {
+    @apply w-24 h-24 rounded-md overflow-hidden border-4 transition-all;
+  }
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.5s ease-out;
+}
+
+.hero-section {
+  height: 80vh;
+  min-height: 500px;
+}
+
+.content-section {
+  margin-top: -100px;
+  position: relative;
+  z-index: 10;
+}
